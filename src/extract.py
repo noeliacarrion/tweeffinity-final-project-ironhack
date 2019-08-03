@@ -10,14 +10,14 @@ consumer_secret = os.environ["consumer_secret"]
 access_token = os.environ["access_token"]
 access_token_secret = os.environ["access_token_secret"]
 
-"""Authorization to use Tweepy and extract information from a Twitter's user"""
+#"""Authorization to use Tweepy and extract information from a Twitter's user"""
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, compression=True)
 
 
-def get_tweets_csv(screen_name): """Function to extract all tweets and create a csv with them"""
+def get_tweets_csv(screen_name): #"""Function to extract all tweets and create a csv with them"""
     alltweets = []
     new_tweets = api.user_timeline(screen_name=screen_name, count=200)
     alltweets.extend(new_tweets)
@@ -35,7 +35,7 @@ def get_tweets_csv(screen_name): """Function to extract all tweets and create a 
         writer.writerow(["id", "created_at", "text"])
         writer.writerows(outtweets)
 
-def get_followers(user_id): """function to extract all followers from the user"""
+def get_followers(user_id): #"""function to extract all followers from the user"""
     list_users = []
     while True:
         try:
@@ -55,8 +55,8 @@ def get_followers(user_id): """function to extract all followers from the user""
         break
 
 
-def get_friends(user_id): """function to extract all friends(people to whom the user follows) and create a csv with 
-                            the information"""
+def get_friends(user_id): #"""function to extract all friends(people to whom the user follows) and create a csv with
+                            #the information"""
     list_users = []
     while True:
         try:
@@ -75,6 +75,6 @@ def get_friends(user_id): """function to extract all friends(people to whom the 
             continue
         break
 
-# get_tweets_csv('Noelia_Carrion9'))
+get_tweets_csv('@IboAlejandro')
 # get_friends('Noelia_Carrion9')
 # get_followers('Noelia_Carrion9')
