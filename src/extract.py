@@ -75,6 +75,6 @@ def get_friends(user_id): #"""function to extract all friends(people to whom the
             continue
         break
 
-get_tweets_csv('@IboAlejandro')
+get_tweets_csv('@mrogati')
 # get_friends('Noelia_Carrion9')
 # get_followers('Noelia_Carrion9')
