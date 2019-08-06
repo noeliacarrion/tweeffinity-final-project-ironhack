@@ -42,47 +42,6 @@ tweets_user['hashtag'] = tweets_user.text.str.extract(r'(\#\w+)', expand=False)
 
 tweets_user['hashtag'] = tweets_user['hashtag'].fillna("")
 
-#def remove_characters(input_text):
-#    list_remove = ["RT", "(?<![@\w])@(\w{1,25})", "\#+"]
-#    for charac in list_remove:
-#        input_text = re.sub(charac, '', input_text)
-#    return input_text.lower()
-#def remove_special_characters(data, colum):
-#    input_text = data[colum].str.replace("[\d\W_]+", " ", re.UNICODE)
-#    return input_text
-#def deEmojify(inputString):
- #   return inputString.encode('latin-1', 'ignore').decode('latin-1')#
-
-#def removeSpace(x):
- #       return " ".join([w for w in x.split() if len(w)>3])
-
-#tweets_user['cleaned_tweets'] = tweets_user.text.apply(remove_characters)
-
-#tweets_user[['cleaned_tweets']].head()
-
-#tweets_user['cleaned_tweets'] = tweets_user['cleaned_tweets'].str.replace('http\S+|www.\S+', "")
-
-#tweets_user['cleaned_tweets'] = remove_special_characters(tweets_user, "cleaned_tweets")
-
-#tweets_user['cleaned_tweets'] = tweets_user['cleaned_tweets'].apply(deEmojify)
-
-#tweets_user['cleaned_tweets'] = tweets_user['cleaned_tweets'].apply(removeSpace)
-
-#tweets_user['cleaned_tweets']
-
-#def remove_characters(input_text):
- #   list_remove = ["RT", "@", "\#+", 'http\S+|www.\S+']
-  #  for charac in list_remove:
-   #     input_text = re.sub(charac, '', input_text)
-   # return input_text.lower()
-
-#tweets_user['tokenized'] = tweets_user['text'].apply(spacy_tokenizer)
-
-#tweets_user = tweets_user[tweets_user['tokenized'].map(lambda d: len(d)) > 0]
-
-#tfidf_vector = TfidfVectorizer(tokenizer = spacy_tokenizer)
-
-#vector2 = bow_vector.fit_transform(all_tweets)
 
 tweets_user['date'] = tweets_user['created_at']
 
@@ -90,23 +49,15 @@ tweets_user['date'] = pd.DatetimeIndex(tweets_user['created_at']).to_period('D')
 
 tweets_user = tweets_user.drop(columns=["created_at"], axis=1)
 
-#tweets_user = tweets_user[["id", "date", "mention", "hashtag", "RT", "cleaned_tweets"]]
-
-#def tokenize(s):
-    #return s.split(" ") 
 
 nlp = spacy.load('en')
 
-# English tokenizer, tagger, parser, NER and word vectors
 parser = English()
 
 nlp.Defaults.stop_words |= {"rt","amp","xx", "xxx"}
 
-#nlp.Defaults.stop_words.add([["rt", "amp"]])
 
-def spacy_tokenizer(sentence):
-    #sentence = remove_characters(sentence) 
-   # sentence = sentence.replace('http\S+|www.\S+', "") 
+def spacy_tokenizer(sentence): 
     tokens = parser(sentence)
     filtered_tokens = []
     for word in tokens:
@@ -116,11 +67,6 @@ def spacy_tokenizer(sentence):
             filtered_tokens.append(lemma)
 
     return filtered_tokens
-
-#" ".join([token.lemma_ for token in doc])
-
-
-#if word.lemma_ != "-PRON-" else word.lower_
 
 tweets_user['tokenized'] = tweets_user['text'].apply(spacy_tokenizer)
 
@@ -150,26 +96,6 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 plt.show()
 
-#def tokenize_only(text):
- #   tokens = [word.lower() for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]
-  #  filtered_tokens = []
-    #filter out any tokens not containing letters (e.g., numeric tokens, raw punctuation)
-   # for token in tokens:
-  #      if re.search('[a-zA-Z]', token):
-    #        filtered_tokens.append(token)
-   # return filtered_tokens
-
-#totalvocab_stemmed = []
-#totalvocab_tokenized = []
-#for i in tweets_user['text']:
- #   allwords_stemmed = tokenize_and_stem(i)
-  #  totalvocab_stemmed.extend(allwords_stemmed)
-    
-   # allwords_tokenized = tokenize_only(i)
-   # totalvocab_tokenized.extend(allwords_tokenized)
-
-#vocab_frame = pd.DataFrame({'words': totalvocab_tokenized}, index = totalvocab_stemmed)
-#print ('there are ' + str(vocab_frame.shape[0]) + ' items in vocab_frame')
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
