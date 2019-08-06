@@ -30,7 +30,7 @@ def get_tweets_csv(screen_name): #Function to extract all tweets and create a cs
 
     outtweets = [[tweet.id_str, tweet.created_at, tweet.text] for tweet in alltweets]
 
-    with open('../output/User_Noelia/%s_tweets.csv' % screen_name, 'w') as f:
+    with open('../output/User_csv/%s_tweets.csv' % screen_name, 'w') as f:
         writer = csv.writer(f)
         writer.writerow(["id", "created_at", "text"])
         writer.writerows(outtweets)
@@ -43,7 +43,7 @@ def get_followers(user_id): #function to extract all followers from the user
                 list_users += user
             user_final = [[user.id_str, user.created_at, user.name, user.screen_name, user.location, user.description,
                            user.followers_count, user.friends_count] for user in list_users]
-            with open("../output/User_Noelia/%s_followers.csv" % user_id, 'w') as f:
+            with open("../output/User_csv/%s_followers.csv" % user_id, 'w') as f:
                 wr = csv.writer(f)
                 wr.writerows([["id", "created_at", "name", "screen_name", "location", "description", "followers_count",
                                "friends_count"]])
@@ -64,7 +64,7 @@ def get_friends(user_id): #function to extract all friends(people to whom the us
                 list_users += user
             user_final = [[user.id_str, user.created_at, user.name, user.screen_name, user.location, user.description,
                            user.followers_count, user.friends_count] for user in list_users]
-            with open("../output/User_Noelia/%s_friends.csv" % user_id, 'w') as f:
+            with open("../output/User_csv/%s_friends.csv" % user_id, 'w') as f:
                 wr = csv.writer(f)
                 wr.writerows([["id", "created_at", "name", "screen_name", "location", "description", "followers_count",
                                "friends_count"]])
@@ -75,6 +75,7 @@ def get_friends(user_id): #function to extract all friends(people to whom the us
             continue
         break
 
-get_tweets_csv('@mew4teaching')
-get_friends('@mew4teaching')
+get_tweets_csv('@virginiagruul')
+#get_friends('@mew4teaching')
+#get_tweets_csv('@maialee')
 # get_followers('Noelia_Carrion9')
