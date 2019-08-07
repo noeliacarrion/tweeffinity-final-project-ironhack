@@ -31,7 +31,7 @@ def hashtag(data, colum, regex):
 
 nlp = es_core_news_sm.load(parser=True)
 nlp.Defaults.stop_words |= {"RT", "próx", "xd", "rt", "htt", "parir", "sobrar", "the", "and", "gracias", "hola",
-                            "jajaja"}
+                            "jajaja", "jajajaja"}
 
 
 def spacyTokenizer(sentence):
@@ -64,3 +64,4 @@ def wordCloud(user, series):
     plt.axis("off")
     plt.savefig('../output/images/%s_wordcloud.png' % user)
     return plt.show()
+
