@@ -1,5 +1,6 @@
 import re
 from collections import Counter
+import datetime
 
 import es_core_news_sm
 import matplotlib.pyplot as plt
@@ -9,6 +10,7 @@ from wordcloud import WordCloud
 
 
 def openData(file):
+    print("opening dataframes...")
     dataframe = pd.read_csv(file)
     return dataframe
 
@@ -27,6 +29,21 @@ def mention(data, colum, regex):
 
 def hashtag(data, colum, regex):
     return data[colum].str.extract(regex, expand=False)
+
+
+def createDate(dataframe, new_column):
+    dataframe[new_column] = pd.to_datetime(dataframe[new_column], infer_datetime_format=True)
+    return dataframe[new_column]
+
+
+def dropcolumns(dataframe, columns):
+    dataframe = dataframe.drop(columns, axis=1)
+    return dataframe
+
+
+def modifiedDate(dataframe, column, year, month, day):
+    dataframe = dataframe[(dataframe[column] > datetime.date(year, month, day))]
+    return dataframe
 
 
 nlp = es_core_news_sm.load(parser=True)
@@ -51,6 +68,7 @@ def dropRows(data, colum):
 
 
 def wordCloud(user, series):
+    print("we are preparing yours and your friends's wordcloud...")
     all_words = []
     for line in series:
         all_words.extend(line)
@@ -64,4 +82,3 @@ def wordCloud(user, series):
     plt.axis("off")
     plt.savefig('../output/images/%s_wordcloud.png' % user)
     return plt.show()
-

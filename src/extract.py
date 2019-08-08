@@ -1,7 +1,7 @@
-import csv
 import os
-import tweepy
+
 import pandas as pd
+import tweepy
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,6 +20,7 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, 
 
 
 def get_tweets_csv(screen_name):  # Function to extract all tweets and create a csv with them
+    print("we are extracting the tweets...")
     alltweets = []
     new_tweets = api.user_timeline(screen_name=screen_name, count=200)
     alltweets.extend(new_tweets)
@@ -31,11 +32,6 @@ def get_tweets_csv(screen_name):  # Function to extract all tweets and create a 
         oldest = alltweets[-1].id - 1
 
     outtweets = [[tweet.id_str, tweet.created_at, tweet.text] for tweet in alltweets]
-
-    # with open('../output/%s_tweets.csv' % screen_name, 'w') as f:
-    #   writer = csv.writer(f)
-    #  writer.writerow(["id", "created_at", "text"])
-    #  writer.writerows(outtweets)
 
     data_user = pd.DataFrame({'id': [tweet.id_str for tweet in alltweets],
                               'tweets': [tweet.text for tweet in alltweets],
