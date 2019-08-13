@@ -1,1 +1,3 @@
-# Tweeffinity, discover your affinity with your friend's twitter
+# Tweeffinity
+
+This is the final project of the Ironhack data analysis bootcamp. Tweeffinity is a program that discover the affinity between two twitter users. 
