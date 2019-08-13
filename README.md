@@ -1,2 +1,1 @@
-# final_project_ironhack
-Final project - Bootcamp Data Analytics Ironhack 2019
+# Tweeffinity, discover your affinity with your friend's twitter
