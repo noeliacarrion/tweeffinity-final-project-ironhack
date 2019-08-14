@@ -10,10 +10,6 @@ It contains all the files to run the program. It is only necessary to run the ma
 
 <img width="260" alt="Captura de pantalla 2019-08-13 a las 15 21 36" src="https://user-images.githubusercontent.com/49640612/63044921-8d524e80-becf-11e9-9568-a3dd5d196648.png">
 
-### - jupyter notebook
-
-It contains the different tests that have been done to test the best machine learning model of clustering.
-
 ### - input
 
 It contains 2 csv files with all tweets from both users.
@@ -26,3 +22,6 @@ It contains the result after running the program:
 - An image with all the tweets from user1 grouped by the the type of content.
 - An image with the comparison between both users.
 
+### - jupyter notebook
+
+It contains the different tests that have been done to test the best machine learning model of clustering.
