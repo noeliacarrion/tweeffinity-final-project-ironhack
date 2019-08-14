@@ -19,8 +19,16 @@ It contains 2 csv files with all tweets from both users.
 It contains the result after running the program:
 
 - Two wordclouds from user1 and user2 with the most used words 
+
+<img width="667" alt="Captura de pantalla 2019-08-14 a las 20 24 08" src="https://user-images.githubusercontent.com/49640612/63046399-a0b2e900-bed2-11e9-9403-d8b4da62466d.png">
+
 - An image with all the tweets from user1 grouped by the the type of content.
+
+<img width="944" alt="Captura de pantalla 2019-08-14 a las 20 33 32" src="https://user-images.githubusercontent.com/49640612/63046496-d2c44b00-bed2-11e9-823d-1ecaac4ce28e.png">
+
 - An image with the comparison between both users.
+
+<img width="1059" alt="Captura de pantalla 2019-08-14 a las 20 31 56" src="https://user-images.githubusercontent.com/49640612/63046434-b6281300-bed2-11e9-8b6e-730de1d98791.png">
 
 ### - jupyter notebook
 
