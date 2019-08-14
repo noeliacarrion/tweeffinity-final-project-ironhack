@@ -8,7 +8,7 @@ I have obtained all the tweets from each user with Tweepy, a Python library for 
 
 Finally, the program returns an affinity percentage based on shared content.
 
-The project has the following folders.
+## Folders
 
 ### - src
 
