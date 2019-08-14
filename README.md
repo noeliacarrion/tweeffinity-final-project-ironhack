@@ -2,7 +2,7 @@
 
 Final project - Ironhack Data Analysis Bootcamp. 
 
-##### Tweeffinity is a program that discovers the affinity between two twitter users. 
+#### Tweeffinity is a program that discovers the affinity between two twitter users. 
 
 ## Process
 
