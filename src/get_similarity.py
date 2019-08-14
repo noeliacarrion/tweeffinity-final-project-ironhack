@@ -20,11 +20,11 @@ def compareSimilarity(data_user, data_friend, colum1, colum2, colum3):
 
     data_friend_shared = data_friend_shared[data_friend_shared[colum3] != -1]
 
-    result = round(100 * (len(data_friend_shared[data_friend_shared[colum3] != -1]) / len(data_friend)), 2)
-    if result < 15:
-        similarity = 'Oh! We are not good friends. We just have {} of tweets in common'.format(result)
+    result = round(100 * (len(data_friend_shared) / len(data_friend)), 2)
+    if result < 20:
+        similarity = 'Oh! We are not good friends. We just have an affinity of {}%'.format(result)
     else:
-        similarity = 'Amazing! We are still friends. We have {} of tweets in common'.format(result)
+        similarity = 'Amazing! We are still friends. We have an affinity of {}%'.format(result)
 
     return similarity
 

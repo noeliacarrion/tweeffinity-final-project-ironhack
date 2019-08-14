@@ -31,10 +31,10 @@ def get_tweets_csv(screen_name):  # Function to extract all tweets and create a 
         alltweets.extend(new_tweets)
         oldest = alltweets[-1].id - 1
 
-    outtweets = [[tweet.id_str, tweet.created_at, tweet.text] for tweet in alltweets]
+    # outtweets = [[tweet.id_str, tweet.created_at, tweet.text] for tweet in alltweets]
 
     data_user = pd.DataFrame({'id': [tweet.id_str for tweet in alltweets],
                               'tweets': [tweet.text for tweet in alltweets],
                               'date_created': [tweet.created_at for tweet in alltweets],
                               })
-    data_user.to_csv('../output/%s_tweets.csv' % screen_name)
+    data_user.to_csv('../input/%s_tweets.csv' % screen_name)

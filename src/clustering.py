@@ -23,7 +23,8 @@ def embeddingUmap(n_components, n_neighbors, random_state, tfidf_matrix_fit, tfi
     return umap_df, umap_embedding
 
 
-def plotEmbedding(embedding_user, embedding_friend, colum1, colum2, cmap, s, title, fontsize):
+'''
+ def plotEmbedding(embedding_user, embedding_friend, colum1, colum2, cmap, s, title, fontsize):
     plt.figure(figsize=(12, 10))
     plt.scatter(embedding_user[colum1], embedding_user[colum2], cmap=cmap, s=s)
     plt.scatter(embedding_friend[colum1], embedding_friend[colum2], cmap=cmap, s=s)
@@ -32,6 +33,7 @@ def plotEmbedding(embedding_user, embedding_friend, colum1, colum2, cmap, s, tit
     plt.savefig('../output/images/embedding_vectors.png')
     print("plotting tweet's vectors...")
     return plt.show()
+'''
 
 
 def clustering(umap_embedding_fit, umap_embedding_predict, min_cluster_size, prediction_data):
@@ -43,17 +45,6 @@ def clustering(umap_embedding_fit, umap_embedding_predict, min_cluster_size, pre
     return clustering, labels
 
 
-def plotClusterTogether(embedding_user, embedding_friend, colum1, colum2, c_user,
-                        c_friend, s, fontzise, title):
-    print("plotting cluster from you and your friend...")
-    plt.figure(figsize=(15, 10))
-    plt.scatter(embedding_user[colum1], embedding_user[colum2], c=c_user, s=s)
-    plt.scatter(embedding_friend[colum1], embedding_friend[colum2], c=c_friend, s=s)
-    plt.title(title, fontsize=fontzise)
-    plt.savefig('../output/images/cluster_user_friend.png')
-    return plt.show()
-
-
 def plotClusterUser(embedding_user, colum1, colum2, clustering_user, c_user, cmap, s, fontzise, title):
     print("please, be patient... Thank you")
     print("plotting cluster from you...")
@@ -61,10 +52,26 @@ def plotClusterUser(embedding_user, colum1, colum2, clustering_user, c_user, cma
     plt.scatter(embedding_user[colum1], embedding_user[colum2], c=c_user, cmap=cmap, s=s)
     plt.colorbar(boundaries=np.unique(clustering_user) - 0.5).set_ticks(np.unique(clustering_user) - 1)
     plt.title(title, fontsize=fontzise)
-    plt.savefig('../output/images/cluster_user.png')
-    return plt.show()
+    plt.savefig('../output/cluster_user.png')
+    plt.show(block=False)
+    plt.pause(2)
+    plt.close('all')
 
 
+def plotClusterTogether(embedding_user, embedding_friend, colum1, colum2, c_user,
+                        c_friend, s, fontzise, title):
+    print("plotting your cluster and your friend's tweets")
+    plt.figure(figsize=(15, 10))
+    plt.scatter(embedding_user[colum1], embedding_user[colum2], c=c_user, s=s)
+    plt.scatter(embedding_friend[colum1], embedding_friend[colum2], c=c_friend, s=s)
+    plt.title(title, fontsize=fontzise)
+    plt.savefig('../output/cluster_user_friend.png')
+    plt.show()
+    plt.pause(2)
+    plt.close('all')
+
+
+'''
 def plotClusterFriend(embedding_friend, colum1, colum2, clustering_friend, c_friend, cmap, s, fontzise, title):
     print('plotting cluster from your friend...')
     plt.figure(figsize=(15, 10))
@@ -73,6 +80,4 @@ def plotClusterFriend(embedding_friend, colum1, colum2, clustering_friend, c_fri
     plt.title(title, fontsize=fontzise)
     plt.savefig('../output/images/cluster_friend.png')
     return plt.show()
-
-
-
+'''

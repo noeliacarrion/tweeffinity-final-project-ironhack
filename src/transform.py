@@ -1,6 +1,6 @@
+import datetime
 import re
 from collections import Counter
-import datetime
 
 import es_core_news_sm
 import matplotlib.pyplot as plt
@@ -48,7 +48,8 @@ def modifiedDate(dataframe, column, year, month, day):
 
 nlp = es_core_news_sm.load(parser=True)
 nlp.Defaults.stop_words |= {"RT", "próx", "xd", "rt", "htt", "parir", "sobrar", "the", "and", "gracias", "hola",
-                            "jajaja", "jajajaja"}
+                            "jajaja", "jajajaja", "hablar", "comer", "personar", "you", "with", "casar",
+                            "was", "that", "what", "pasar", "salir"}
 
 
 def spacyTokenizer(sentence):
@@ -80,5 +81,7 @@ def wordCloud(user, series):
     plt.figure(figsize=(12, 10))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis("off")
-    plt.savefig('../output/images/%s_wordcloud.png' % user)
-    return plt.show()
+    plt.savefig('../output/%s_wordcloud.png' % user)
+    plt.show(block=False)
+    plt.pause(1)
+    plt.close('all')
