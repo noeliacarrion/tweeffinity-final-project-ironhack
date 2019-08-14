@@ -1,6 +1,12 @@
 # Tweeffinity
 
-This is the final project of Ironhack data analysis bootcamp. Tweeffinity is a program that discovers the affinity between two twitter users. Through the HDBSCAN cluster model and with natural language processing techniques the program returns an affinity percentage based on shared content.
+This is the final project of Ironhack data analysis bootcamp. Tweeffinity is a program that discovers the affinity between two twitter users. 
+
+### Process
+
+I have obtained all the tweets from each user with Tweepy, a Python library for the Twitter API. After cleaning the database I have used natural language processing to determine the main words and vectorized each tweet to perform machine learning techniques.The cluster model selected has been HDBSCAN because it determines for itself the most suitable cluster number.
+
+Finally, the program returns an affinity percentage based on shared content.
 
 The project has the following folders.
 
