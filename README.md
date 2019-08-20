@@ -12,6 +12,10 @@ Finally, the program returns an affinity percentage based on shared content.
 
 ## Folders
 
+#### - Requirements.txt
+
+This file contains all the dependencies to run the program
+
 ### - src
 
 It contains all the files to run the program. It is only necessary to run the main.py file in the terminal by entering two twitter users. Here, there is an example: 
