@@ -1,6 +1,3 @@
-from clustering import *
-
-
 def addColum(dataframe, new_column, clustering_values):
     dataframe[new_column] = clustering_values
     return dataframe[new_column]
