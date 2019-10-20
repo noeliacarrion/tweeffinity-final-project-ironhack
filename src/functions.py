@@ -7,6 +7,7 @@ import transform
 def get_args():  # add two arguments to run the program: user1 and user2
     parser = argparse.ArgumentParser(description="Username in Twitter")
     parser.add_argument('-u', '--user', help="type your username in Twitter", type=str)
+
     parser.add_argument('-f', '--friend', help="type your friend's username in Twitter", type=str)
 
     return parser.parse_args()
